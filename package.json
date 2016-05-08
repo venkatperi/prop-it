@@ -1,0 +1,25 @@
+{
+  "name": "prop-it",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/venkatperi/prop-it.git"
+  },
+  "preferGlobal": false,
+  "description": "add properties with getter/setter, backing store, events and conversion",
+  "dependencies": {},
+  "bundleDependencies": [],
+  "main": "dist/index",
+  "scripts": {
+    "prepublish": "grunt",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-coffee": "^1.0.0",
+    "should": "^8.3.1"
+  },
+  "author": "Venkat Peri <venkatperi@gmail.com> (http://www.vperi.com/)",
+  "license": "MIT"
+}
