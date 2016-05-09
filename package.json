@@ -7,7 +7,10 @@
   },
   "preferGlobal": false,
   "description": "add properties with getter/setter, backing store, events and conversion",
-  "dependencies": {},
+  "dependencies": {
+    "common-errors": "^0.5.3",
+    "error": "^7.0.2"
+  },
   "bundleDependencies": [],
   "main": "dist/index",
   "scripts": {

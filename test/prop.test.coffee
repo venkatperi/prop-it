@@ -14,6 +14,19 @@ describe "prop", ->
     obj.foo.should.be.a.Function
     done()
 
+  it "throws on missing args", ( done ) ->
+    ( -> prop obj).should.throw
+    done()
+
+  it "throws if property name is missing", ( done ) ->
+    ( -> prop obj, {}).should.throw
+    done()
+
+  it "field name is prefixed with '_'", ( done ) ->
+    prop obj, { name : 'foo', initial : 1 }
+    should(obj._foo).exist
+    done()
+
   it "assigns initial value", ( done ) ->
     prop obj, { name : 'foo', initial : 1 }
     obj.foo().should.equal 1
@@ -59,9 +72,13 @@ describe "prop", ->
     obj.foo().should.equal 123 * 2
     done()
 
-  it "read only", ( done ) ->
-    prop obj, { name : 'foo', initial : 123, readOnly : true }
-    obj.foo "abc"
+  it "read only must have an initial value", ( done ) ->
+    ( -> prop obj, { name : 'foo', readonly : true }).should.throw
+    done()
+
+  it "throws if assigning a read only", ( done ) ->
+    prop obj, { name : 'foo', initial : 123, readonly : true }
+    ( -> obj.foo "abc").should.throw
     obj.foo().should.equal 123
     done()
 
