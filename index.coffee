@@ -9,7 +9,8 @@ module.exports = ( obj, opts ) ->
   field = opts.field or if store is obj then "_#{name}" else name
   convert = opts.convert
   getter = opts.getter or -> store[ field ]
-  setter = opts.setter or ( v ) -> store[ field ] = if convert? then convert v else v
+  setter = opts.setter or ( v ) ->
+    store[ field ] = if convert? then convert v else v
 
   setter opts.initial if opts.initial?
 

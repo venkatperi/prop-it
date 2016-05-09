@@ -3,6 +3,9 @@ module.exports = ( grunt ) ->
   grunt.initConfig
     pkg : grunt.file.readJSON "package.json"
 
+    coffeelint :
+      app: ['lib/**/*.coffee', "*.coffee"]
+
     clean :
       dist : [ "dist", "*.{js,map}", "lib/**/*.{map,js}" ]
 
@@ -18,8 +21,8 @@ module.exports = ( grunt ) ->
         dest : "dist"
         ext : '.js'
 
-  for t in [ "contrib-coffee", "contrib-clean" ]
+  for t in [ "contrib-coffee", "contrib-clean", "coffeelint" ]
     grunt.loadNpmTasks "grunt-#{t}"
 
-  grunt.registerTask "default", [ "clean:dist", "coffee:dist" ]
+  grunt.registerTask "default", [ "coffeelint", "clean:dist", "coffee:dist" ]
 

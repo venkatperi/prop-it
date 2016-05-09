@@ -12,12 +12,15 @@
   "main": "dist/index",
   "scripts": {
     "prepublish": "grunt",
-    "test": "mocha"
+    "test": "mocha && istanbul report text-summary lcov"
   },
   "devDependencies": {
+    "coffee-coverage": "^1.0.1",
     "grunt": "^1.0.1",
+    "grunt-coffeelint": "0.0.15",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-coffee": "^1.0.0",
+    "istanbul": "^0.4.3",
     "should": "^8.3.1"
   },
   "author": "Venkat Peri <venkatperi@gmail.com> (http://www.vperi.com/)",
